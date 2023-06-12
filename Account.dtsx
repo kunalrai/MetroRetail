@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Account"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{C07BBF45-0A89-4F88-ACB6-CB43CC1537E5}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{67D91574-D0B9-4EAF-B7B8-806279885181}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -166,239 +166,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\Data Flow Task\DimAccount"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="DimAccount"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimAccount]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\DimAccount.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[staging]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[AccountKey]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="AccountKey"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[ParentAccountKey]"
-                      cachedDataType="i4"
-                      cachedName="ParentAccountKey"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ParentAccountKey]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ParentAccountKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[AccountLabel]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="AccountLabel"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountLabel]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountLabel]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[AccountName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="AccountName"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountName]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[AccountDescription]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="AccountDescription"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountDescription]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountDescription]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[AccountType]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="AccountType"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountType]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountType]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[CustomMembers]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="CustomMembers"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMembers]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomMembers]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[ValueType]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ValueType"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ValueType]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ValueType]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[CustomMemberOptions]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="CustomMemberOptions"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMemberOptions]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomMemberOptions]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].Columns[ETLLoadID]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ETLLoadID"
-                      externalMetadataColumnId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
-                      dataType="i4"
-                      name="AccountKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ParentAccountKey]"
-                      dataType="i4"
-                      name="ParentAccountKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountLabel]"
-                      dataType="wstr"
-                      length="100"
-                      name="AccountLabel" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountName]"
-                      dataType="wstr"
-                      length="50"
-                      name="AccountName" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountDescription]"
-                      dataType="wstr"
-                      length="50"
-                      name="AccountDescription" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountType]"
-                      dataType="wstr"
-                      length="50"
-                      name="AccountType" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[Operator]"
-                      dataType="wstr"
-                      length="50"
-                      name="Operator" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMembers]"
-                      dataType="wstr"
-                      length="300"
-                      name="CustomMembers" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ValueType]"
-                      dataType="wstr"
-                      length="50"
-                      name="ValueType" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMemberOptions]"
-                      dataType="wstr"
-                      length="200"
-                      name="CustomMemberOptions" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
-                      dataType="i4"
-                      name="ETLLoadID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
-                      dataType="dbTimeStamp"
-                      name="LoadDate" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
-                      dataType="dbTimeStamp"
-                      name="UpdateDate" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\DimAccount.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Data Flow Task\Flat File Source"
               componentClassID="Microsoft.FlatFileSource"
@@ -724,18 +491,303 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Data Flow Task\staging_DimAccount"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="staging_DimAccount"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimAccount]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\staging_DimAccount.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[AccountKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccountKey"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[ParentAccountKey]"
+                      cachedDataType="i4"
+                      cachedName="ParentAccountKey"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ParentAccountKey]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ParentAccountKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[AccountLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AccountLabel"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountLabel]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountLabel]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[AccountName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AccountName"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[AccountDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AccountDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountDescription]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[AccountType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AccountType"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountType]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[AccountType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[CustomMembers]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CustomMembers"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMembers]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomMembers]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[ValueType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ValueType"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ValueType]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ValueType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[CustomMemberOptions]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CustomMemberOptions"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMemberOptions]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomMemberOptions]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].Columns[ETLLoadID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      dataType="i4"
+                      name="AccountKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ParentAccountKey]"
+                      dataType="i4"
+                      name="ParentAccountKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="AccountLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountName]"
+                      dataType="wstr"
+                      length="50"
+                      name="AccountName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="AccountDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[AccountType]"
+                      dataType="wstr"
+                      length="50"
+                      name="AccountType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[Operator]"
+                      dataType="wstr"
+                      length="50"
+                      name="Operator" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMembers]"
+                      dataType="wstr"
+                      length="300"
+                      name="CustomMembers" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ValueType]"
+                      dataType="wstr"
+                      length="50"
+                      name="ValueType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[CustomMemberOptions]"
+                      dataType="wstr"
+                      length="200"
+                      name="CustomMemberOptions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\staging_DimAccount.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\staging_DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\staging_DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\staging_DimAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Flat File Source Output]"
-              endId="Package\Data Flow Task\DimAccount.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\staging_DimAccount.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EE0DAABA-B251-4962-BC41-A54F51FA38A9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{64B4F477-570B-465A-8E47-B438CAE8E0A6}"
+          SQLTask:SqlStatementSource="drop table FactStrategyPlan&#xA;&#xA;TRUNCATE TABLE [dbo].[DimAccount];&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{718CB603-5513-4343-8B01-662D2EF0EA36}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{64B4F477-570B-465A-8E47-B438CAE8E0A6}"
+          SQLTask:SqlStatementSource="--FactStrategyPlan&#xA;&#xA;CREATE TABLE [dbo].[FactStrategyPlan](&#xA;&#x9;[StrategyPlanKey] [int] IDENTITY(1,1) NOT NULL,&#xA;&#x9;[Datekey] [datetime] NOT NULL,&#xA;&#x9;[EntityKey] [int] NOT NULL,&#xA;&#x9;[ScenarioKey] [int] NOT NULL,&#xA;&#x9;[AccountKey] [int] NOT NULL,&#xA;&#x9;[CurrencyKey] [int] NOT NULL,&#xA;&#x9;[ProductCategoryKey] [int] NULL,&#xA;&#x9;[Amount] [money] NOT NULL,&#xA;&#x9;[ETLLoadID] [int] NULL,&#xA;&#x9;[LoadDate] [datetime] NULL,&#xA;&#x9;[UpdateDate] [datetime] NULL,&#xA; CONSTRAINT [PK_FactStrategyPlan_StrategyPlanKey] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[StrategyPlanKey] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimAccount] FOREIGN KEY([AccountKey])&#xA;REFERENCES [dbo].[DimAccount] ([AccountKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimAccount]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimCurrency] FOREIGN KEY([CurrencyKey])&#xA;REFERENCES [dbo].[DimCurrency] ([CurrencyKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimCurrency]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimDate] FOREIGN KEY([Datekey])&#xA;REFERENCES [dbo].[DimDate] ([Datekey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimDate]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimEntity] FOREIGN KEY([EntityKey])&#xA;REFERENCES [dbo].[DimEntity] ([EntityKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimEntity]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimProductCategory] FOREIGN KEY([ProductCategoryKey])&#xA;REFERENCES [dbo].[DimProductCategory] ([ProductCategoryKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimProductCategory]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimScenario] FOREIGN KEY([ScenarioKey])&#xA;REFERENCES [dbo].[DimScenario] ([ScenarioKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimScenario]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B9126E98-2D7D-4A19-B7C7-855942F360FE}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B33B8D5-DBAD-40A9-8136-4B4A31C3DB46}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task 1" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -747,11 +799,87 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="85.833328643607,76.2666661363178" />
+          TopLeft="261.666652369831,157.733332236475" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="101.666661111845,284.266664689912" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="184.066661111845,284.266664689912">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.799991257986,-84.9333324534363"
+              Start="0,0"
+              End="152.799991257986,-77.4333324534363">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-38.4666662267182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-38.4666662267182"
+                    Point2="0,-42.4666662267182"
+                    Point3="4,-42.4666662267182" />
+                  <mssgle:LineSegment
+                    End="148.799991257986,-42.4666662267182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="148.799991257986,-42.4666662267182"
+                    Point2="152.799991257986,-42.4666662267182"
+                    Point3="152.799991257986,-46.4666662267182" />
+                  <mssgle:LineSegment
+                    End="152.799991257986,-77.4333324534363" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="634.999965305131,169.866665485435" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="412.066652369831,178.533332236475">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="222.9333129353,12.1333332489596"
+              Start="0,0"
+              End="215.4333129353,12.1333332489596">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="107.46665646765,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.46665646765,0"
+                    Point2="111.46665646765,0"
+                    Point3="111.46665646765,4" />
+                  <mssgle:LineSegment
+                    End="111.46665646765,8.13333324895962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.46665646765,8.13333324895962"
+                    Point2="111.46665646765,12.1333332489596"
+                    Point3="115.46665646765,12.1333332489596" />
+                  <mssgle:LineSegment
+                    End="215.4333129353,12.1333332489596" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -763,25 +891,37 @@
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="125.833326458103,62.3999995660782" />
+          TopLeft="176.666657014026,136.933332381116" />
         <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\Data Flow Task\DimAccount"
-          TopLeft="141.666658926342,206.266665232314" />
+          Size="173.6,41.6"
+          Id="Package\Data Flow Task\staging_DimAccount"
+          TopLeft="142.499992214144,283.399998029272" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="205.149992692222,103.999999566078">
+          TopLeft="252.266657014026,178.533332381116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,102.266665666236"
+              EndConnector="-22.9666647998824,104.866665648156"
               Start="0,0"
-              End="0,94.7666656662358">
+              End="-22.9666647998824,97.3666656481557">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,94.7666656662358" />
+                    End="0,48.4333328240779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.4333328240779"
+                    Point2="0,52.4333328240779"
+                    Point3="-4,52.4333328240779" />
+                  <mssgle:LineSegment
+                    End="-18.9666647998824,52.4333328240779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.9666647998824,52.4333328240779"
+                    Point2="-22.9666647998824,52.4333328240779"
+                    Point3="-22.9666647998824,56.4333328240779" />
+                  <mssgle:LineSegment
+                    End="-22.9666647998824,97.3666656481557" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -794,7 +934,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DimAccount">
+    design-time-name="Package\Data Flow Task\staging_DimAccount">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
