@@ -4,6 +4,7 @@
 # Ignore bin and obj folders which are generated during build
 **/obj/
 **/bin/
+**/.vs/
 
 # Ignore any .bak (backup) files
 *.bak
