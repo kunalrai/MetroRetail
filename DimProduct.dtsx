@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2023 12:41:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DELLINSPIRON153"
+  DTS:CreatorName="DELLINSPIRON153\ikuna"
+  DTS:DTSID="{D584B4A3-DB29-42C7-8497-C11F5A9D3250}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{74C59187-5936-4A9A-885E-F8B8A47A997B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

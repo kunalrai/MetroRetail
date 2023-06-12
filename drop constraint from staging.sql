@@ -8,9 +8,6 @@ DROP CONSTRAINT FK_FactSales_DimChannel
 ALTER TABLE FactStrategyPlan
 DROP CONSTRAINT FK_FactStrategyPlan_DimAccount
 
-
--- Dropping foreign keys
-
 ALTER TABLE FactSales
 DROP CONSTRAINT FK_FactSales_DimCurrency;
 
