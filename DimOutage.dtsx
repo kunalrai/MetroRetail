@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{43DCFC87-1EDE-4B3B-BD09-65D6C4623485}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2FBC23B7-82B4-4261-8231-B9FC4FC1CEDE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,6 +25,107 @@
         <DTS:ConnectionManager
           DTS:FileUsageType="2"
           DTS:ConnectionString="C:\Users\ikuna\Downloads\MetroRetail\ArchiveFolder" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[outage file]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EBDB29BC-068F-4F20-8992-04027E7A9CD2}"
+      DTS:ObjectName="outage file">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ikuna\Downloads\MetroRetail\SourceFiles\MetroOutage_2021015.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageKey"
+              DTS:DTSID="{4449593E-516E-46C2-A51E-92CD91D6F9F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageLabel"
+              DTS:DTSID="{75F733FD-7ABE-4FD1-A479-ED77E73F8DD4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageName"
+              DTS:DTSID="{FFB1D902-06D5-464F-8137-C23329658C28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageDescription"
+              DTS:DTSID="{457FD9BF-AF1B-42E0-AC5C-F61ECB15EA51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageType"
+              DTS:DTSID="{F6A79C97-2BD7-4BB7-8823-08D20488A13B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageTypeDescription"
+              DTS:DTSID="{8317A7E0-6A8F-4A0A-985D-A4EEAB61E563}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageSubType"
+              DTS:DTSID="{97210917-9E11-453E-8978-4386D5AF29B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageSubTypeDescription"
+              DTS:DTSID="{E73D2ECF-0FF9-460D-A883-230069EA55E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{5CD1BE57-DEA7-48A6-AF63-2825B82E090B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -55,6 +156,683 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{413D49E0-43C5-4CD3-BDFD-EF8A53FCCF6A}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskSourcePath="{EBDB29BC-068F-4F20-8992-04027E7A9CD2}"
+          TaskDestinationPath="{2081F9A7-2474-4C54-B56D-DB17C1D22183}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C71A5081-5251-40DA-A379-C7DD384B48D1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETUTCDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETUTCDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETUTCDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETUTCDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\dimoutage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimoutage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimOutage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\dimoutage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OutageKey"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageKey]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="OutageLabel"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageLabel]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageLabel]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OutageName"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageName]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="OutageDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageDescription]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OutageType"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageType]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageTypeDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="OutageTypeDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageTypeDescription]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageTypeDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageSubType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OutageSubType"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageSubType]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[OutageSubTypeDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="OutageSubTypeDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageSubTypeDescription]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubTypeDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[ETLLoadID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageKey]"
+                      dataType="i4"
+                      name="OutageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="OutageLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageName]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageType]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageTypeDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageSubType]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageSubType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[OutageSubTypeDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageSubTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\dimoutage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\dimoutage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\dimoutage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\dimoutage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\dimoutage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="16393"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[outage file]"
+                  connectionManagerRefId="Package.ConnectionManagers[outage file]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageKey]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageKey]"
+                      name="OutageKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageLabel]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageLabel]"
+                      name="OutageLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageName]"
+                      name="OutageName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageDescription]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageDescription]"
+                      name="OutageDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageType]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageType]"
+                      name="OutageType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageTypeDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageTypeDescription]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageTypeDescription]"
+                      name="OutageTypeDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageSubType]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubType]"
+                      name="OutageSubType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubTypeDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageSubTypeDescription]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OutageSubTypeDescription]"
+                      name="OutageSubTypeDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OutageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="OutageLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageName]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageType]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageTypeDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageSubType]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutageSubType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OutageSubTypeDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="OutageSubTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETLLoadID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\dimoutage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -71,7 +849,50 @@
           SQLTask:SqlStatementSource="truncate table DimOutage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F652A304-6CF7-48DD-AC4A-15CBEF92092C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="merge"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0638A22B-928E-43E4-B16D-97BE025F9F71}"
+          SQLTask:SqlStatementSource="MERGE MetroRetailDW.dbo.DimOutage AS target&#xA;USING MetroRetail_stagingDW.dbo.DimOutage AS source&#xA;ON (target.OutageKey = source.OutageKey)&#xA;&#xA;-- When records are matched, update the records if there is any change&#xA;WHEN MATCHED AND (target.OutageLabel &lt;&gt; source.OutageLabel&#xA;    OR target.OutageName &lt;&gt; source.OutageName&#xA;    OR target.OutageDescription &lt;&gt; source.OutageDescription&#xA;    OR target.OutageType &lt;&gt; source.OutageType&#xA;    OR target.OutageTypeDescription &lt;&gt; source.OutageTypeDescription&#xA;    OR target.OutageSubType &lt;&gt; source.OutageSubType&#xA;    OR target.OutageSubTypeDescription &lt;&gt; source.OutageSubTypeDescription&#xA;    OR target.ETLLoadID &lt;&gt; source.ETLLoadID&#xA;    OR target.LoadDate &lt;&gt; source.LoadDate&#xA;    OR target.UpdateDate &lt;&gt; source.UpdateDate) &#xA;THEN&#xA;UPDATE SET&#xA;    target.OutageLabel = source.OutageLabel,&#xA;    target.OutageName = source.OutageName,&#xA;    target.OutageDescription = source.OutageDescription,&#xA;    target.OutageType = source.OutageType,&#xA;    target.OutageTypeDescription = source.OutageTypeDescription,&#xA;    target.OutageSubType = source.OutageSubType,&#xA;    target.OutageSubTypeDescription = source.OutageSubTypeDescription,&#xA;    target.ETLLoadID = source.ETLLoadID,&#xA;    target.LoadDate = source.LoadDate,&#xA;    target.UpdateDate = source.UpdateDate&#xA;&#xA;-- When no records are matched, insert the incoming records from source table to target table&#xA;WHEN NOT MATCHED BY TARGET THEN &#xA;INSERT (OutageKey, OutageLabel, OutageName, OutageDescription, OutageType, OutageTypeDescription, OutageSubType, OutageSubTypeDescription, ETLLoadID, LoadDate, UpdateDate)&#xA;VALUES (source.OutageKey, source.OutageLabel, source.OutageName, source.OutageDescription, source.OutageType, source.OutageTypeDescription, source.OutageSubType, source.OutageSubTypeDescription, source.ETLLoadID, source.LoadDate, source.UpdateDate);&#xA;&#xA;-- When there is a record in target that doesn't exist in source, you can delete the record if your business rule allows for deletion&#xA;-- WHEN NOT MATCHED BY SOURCE THEN DELETE;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9CFA169E-384C-4BE6-B95F-6602F4F57DE6}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B497F0C-AFEC-4E5D-BF0E-8A6F1643F0E9}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\merge" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{910B8193-086C-4E77-BDB8-34E5EE279E8D}"
+      DTS:From="Package\merge"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\archive" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -83,13 +904,228 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Execute SQL Task"
           TopLeft="126.666659745905,91.8666660278374" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="179.999990165234,221.866665123834" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="209.066659745905,133.466666027837">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.1333304193286,88.3999990959962"
+              Start="0,0"
+              End="46.1333304193286,80.8999990959962">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1999995479981" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.1999995479981"
+                    Point2="0,44.1999995479981"
+                    Point3="4,44.1999995479981" />
+                  <mssgle:LineSegment
+                    End="42.1333304193286,44.1999995479981" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.1333304193286,44.1999995479981"
+                    Point2="46.1333304193286,44.1999995479981"
+                    Point3="46.1333304193286,48.1999995479981" />
+                  <mssgle:LineSegment
+                    End="46.1333304193286,80.8999990959962" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\merge"
+          TopLeft="249.166653052801,338.86666431023" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="255.199990165234,263.466665123834">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.9666628875668,75.3999991863966"
+              Start="0,0"
+              End="47.9666628875668,67.8999991863966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999995931983"
+                    Point2="0,37.6999995931983"
+                    Point3="4,37.6999995931983" />
+                  <mssgle:LineSegment
+                    End="43.9666628875668,37.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.9666628875668,37.6999995931983"
+                    Point2="47.9666628875668,37.6999995931983"
+                    Point3="47.9666628875668,41.6999995931983" />
+                  <mssgle:LineSegment
+                    End="47.9666628875668,67.8999991863966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\archive"
+          TopLeft="218.333321404126,456.733330157267" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="303.166653052801,380.46666431023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.8333316486743,76.2666658470366"
+              Start="0,0"
+              End="-28.8333316486743,68.7666658470366">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1333329235183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.1333329235183"
+                    Point2="0,38.1333329235183"
+                    Point3="-4,38.1333329235183" />
+                  <mssgle:LineSegment
+                    End="-24.8333316486743,38.1333329235183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.8333316486743,38.1333329235183"
+                    Point2="-28.8333316486743,38.1333329235183"
+                    Point3="-28.8333316486743,42.1333329235183" />
+                  <mssgle:LineSegment
+                    End="-28.8333316486743,68.7666658470366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="164.166657696996,84.9333327427175" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="207.4999886627,238.333331675993" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="239.766657696996,126.533332742718">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.1333309657045,111.799998933276"
+              Start="0,0"
+              End="44.1333309657045,104.299998933276">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.8999994666378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.8999994666378"
+                    Point2="0,55.8999994666378"
+                    Point3="4,55.8999994666378" />
+                  <mssgle:LineSegment
+                    End="40.1333309657045,55.8999994666378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.1333309657045,55.8999994666378"
+                    Point2="44.1333309657045,55.8999994666378"
+                    Point3="44.1333309657045,59.8999994666378" />
+                  <mssgle:LineSegment
+                    End="44.1333309657045,104.299998933276" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Data Flow Task\dimoutage"
+          TopLeft="175.833323726224,361.39999748687" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="283.8999886627,279.933331675993">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.4666649364764,81.4666658108765"
+              Start="0,0"
+              End="-44.4666649364764,73.9666658108765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7333329054383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.7333329054383"
+                    Point2="0,40.7333329054383"
+                    Point3="-4,40.7333329054383" />
+                  <mssgle:LineSegment
+                    End="-40.4666649364764,40.7333329054383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.4666649364764,40.7333329054383"
+                    Point2="-44.4666649364764,40.7333329054383"
+                    Point3="-44.4666649364764,44.7333329054383" />
+                  <mssgle:LineSegment
+                    End="-44.4666649364764,73.9666658108765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\dimoutage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
