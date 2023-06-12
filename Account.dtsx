@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Account"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{50CDFF52-C543-43CE-B085-72EF7EE528E8}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{1AFFBF70-3E36-4FE0-9873-E965E46339D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -951,23 +951,6 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Sequence Container\Execute SQL Task 1"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{8871AE25-E66C-4C5A-998F-A0428E6D0C9A}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task 1"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{0638A22B-928E-43E4-B16D-97BE025F9F71}"
-              SQLTask:SqlStatementSource="MERGE INTO MetroRetailDW.dbo.DimAccount AS target&#xA;USING MetroRetail_stagingDW.dbo.DimAccount AS source&#xA;ON (target.AccountKey = source.AccountKey)&#xA;-- When matched, and there are changes, then update&#xA;WHEN MATCHED AND (target.ParentAccountKey != source.ParentAccountKey OR&#xA;                  target.AccountLabel != source.AccountLabel OR&#xA;                  target.AccountName != source.AccountName OR&#xA;                  target.AccountDescription != source.AccountDescription OR&#xA;                  target.AccountType != source.AccountType OR&#xA;                  target.Operator != source.Operator OR&#xA;                  target.CustomMembers != source.CustomMembers OR&#xA;                  target.ValueType != source.ValueType OR&#xA;                  target.CustomMemberOptions != source.CustomMemberOptions OR&#xA;                  target.ETLLoadID != source.ETLLoadID OR&#xA;                  target.LoadDate != source.LoadDate OR&#xA;                  target.UpdateDate != source.UpdateDate)&#xA;THEN &#xA;    UPDATE SET &#xA;        target.ParentAccountKey = source.ParentAccountKey,&#xA;        target.AccountLabel = source.AccountLabel,&#xA;        target.AccountName = source.AccountName,&#xA;        target.AccountDescription = source.AccountDescription,&#xA;        target.AccountType = source.AccountType,&#xA;        target.Operator = source.Operator,&#xA;        target.CustomMembers = source.CustomMembers,&#xA;        target.ValueType = source.ValueType,&#xA;        target.CustomMemberOptions = source.CustomMemberOptions,&#xA;        target.ETLLoadID = source.ETLLoadID,&#xA;        target.LoadDate = source.LoadDate,&#xA;        target.UpdateDate = source.UpdateDate&#xA;-- When not matched by target, then insert&#xA;WHEN NOT MATCHED BY TARGET &#xA;THEN &#xA;    INSERT (AccountKey, ParentAccountKey, AccountLabel, AccountName, AccountDescription, AccountType,&#xA;            Operator, CustomMembers, ValueType, CustomMemberOptions, ETLLoadID, LoadDate, UpdateDate)&#xA;    VALUES (source.AccountKey, source.ParentAccountKey, source.AccountLabel, source.AccountName,&#xA;            source.AccountDescription, source.AccountType, source.Operator, source.CustomMembers,&#xA;            source.ValueType, source.CustomMemberOptions, source.ETLLoadID, source.LoadDate,&#xA;            source.UpdateDate);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Sequence Container\File System Task"
           DTS:CreationName="Microsoft.FileSystemTask"
           DTS:Description="File System Task"
@@ -983,6 +966,23 @@
               TaskOperationType="MoveFile"
               TaskSourcePath="{719EC032-E4D2-4FB1-BC61-DE059041F6B6}"
               TaskDestinationPath="{2081F9A7-2474-4C54-B56D-DB17C1D22183}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Merge"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8871AE25-E66C-4C5A-998F-A0428E6D0C9A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0638A22B-928E-43E4-B16D-97BE025F9F71}"
+              SQLTask:SqlStatementSource="MERGE INTO MetroRetailDW.dbo.DimAccount AS target&#xA;USING MetroRetail_stagingDW.dbo.DimAccount AS source&#xA;ON (target.AccountKey = source.AccountKey)&#xA;-- When matched, and there are changes, then update&#xA;WHEN MATCHED AND (target.ParentAccountKey != source.ParentAccountKey OR&#xA;                  target.AccountLabel != source.AccountLabel OR&#xA;                  target.AccountName != source.AccountName OR&#xA;                  target.AccountDescription != source.AccountDescription OR&#xA;                  target.AccountType != source.AccountType OR&#xA;                  target.Operator != source.Operator OR&#xA;                  target.CustomMembers != source.CustomMembers OR&#xA;                  target.ValueType != source.ValueType OR&#xA;                  target.CustomMemberOptions != source.CustomMemberOptions OR&#xA;                  target.ETLLoadID != source.ETLLoadID OR&#xA;                  target.LoadDate != source.LoadDate OR&#xA;                  target.UpdateDate != source.UpdateDate)&#xA;THEN &#xA;    UPDATE SET &#xA;        target.ParentAccountKey = source.ParentAccountKey,&#xA;        target.AccountLabel = source.AccountLabel,&#xA;        target.AccountName = source.AccountName,&#xA;        target.AccountDescription = source.AccountDescription,&#xA;        target.AccountType = source.AccountType,&#xA;        target.Operator = source.Operator,&#xA;        target.CustomMembers = source.CustomMembers,&#xA;        target.ValueType = source.ValueType,&#xA;        target.CustomMemberOptions = source.CustomMemberOptions,&#xA;        target.ETLLoadID = source.ETLLoadID,&#xA;        target.LoadDate = source.LoadDate,&#xA;        target.UpdateDate = source.UpdateDate&#xA;-- When not matched by target, then insert&#xA;WHEN NOT MATCHED BY TARGET &#xA;THEN &#xA;    INSERT (AccountKey, ParentAccountKey, AccountLabel, AccountName, AccountDescription, AccountType,&#xA;            Operator, CustomMembers, ValueType, CustomMemberOptions, ETLLoadID, LoadDate, UpdateDate)&#xA;    VALUES (source.AccountKey, source.ParentAccountKey, source.AccountLabel, source.AccountName,&#xA;            source.AccountDescription, source.AccountType, source.Operator, source.CustomMembers,&#xA;            source.ValueType, source.CustomMemberOptions, source.ETLLoadID, source.LoadDate,&#xA;            source.UpdateDate);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -1002,12 +1002,12 @@
           DTS:From="Package\Sequence Container\Data Flow Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Sequence Container\Execute SQL Task 1" />
+          DTS:To="Package\Sequence Container\Merge" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{BB8218BB-937B-45E0-A593-1A9F25629873}"
-          DTS:From="Package\Sequence Container\Execute SQL Task 1"
+          DTS:From="Package\Sequence Container\Merge"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Sequence Container\File System Task" />
@@ -1067,8 +1067,8 @@
           Id="Package\Sequence Container\Data Flow Task"
           TopLeft="230.499987706543,15.0666660278369" />
         <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Sequence Container\Execute SQL Task 1"
+          Size="108,41.6"
+          Id="Package\Sequence Container\Merge"
           TopLeft="490.333303920098,36.7999989151955" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
@@ -1110,13 +1110,13 @@
           TopLeft="186.999987160167,146.866664816472" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="577.133303920098,78.3999989151955">
+          TopLeft="544.333303920098,78.3999989151955">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-310.933316759931,68.4666659012769"
+              EndConnector="-278.133316759931,68.4666659012769"
               Start="0,0"
-              End="-310.933316759931,60.9666659012769">
+              End="-278.133316759931,60.9666659012769">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1127,13 +1127,13 @@
                     Point2="0,34.2333329506384"
                     Point3="-4,34.2333329506384" />
                   <mssgle:LineSegment
-                    End="-306.933316759931,34.2333329506384" />
+                    End="-274.133316759931,34.2333329506384" />
                   <mssgle:CubicBezierSegment
-                    Point1="-306.933316759931,34.2333329506384"
-                    Point2="-310.933316759931,34.2333329506384"
-                    Point3="-310.933316759931,38.2333329506384" />
+                    Point1="-274.133316759931,34.2333329506384"
+                    Point2="-278.133316759931,34.2333329506384"
+                    Point3="-278.133316759931,38.2333329506384" />
                   <mssgle:LineSegment
-                    End="-310.933316759931,60.9666659012769" />
+                    End="-278.133316759931,60.9666659012769" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
