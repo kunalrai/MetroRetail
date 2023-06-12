@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Account"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{EF656DA9-223D-4DB1-9BBB-045C579AC4DE}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{50CDFF52-C543-43CE-B085-72EF7EE528E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -126,6 +126,27 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ArchiveFolder]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{2081F9A7-2474-4C54-B56D-DB17C1D22183}"
+      DTS:ObjectName="ArchiveFolder">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\ikuna\Downloads\MetroRetail\ArchiveFolder" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MetroAccount_20201015.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{719EC032-E4D2-4FB1-BC61-DE059041F6B6}"
+      DTS:ObjectName="MetroAccount_20201015.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\ikuna\Downloads\MetroRetail\SourceFiles\MetroAccount_20201015.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[production]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{0638A22B-928E-43E4-B16D-97BE025F9F71}"
@@ -166,7 +187,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{64B4F477-570B-465A-8E47-B438CAE8E0A6}"
-          SQLTask:SqlStatementSource="&#xA;--FactStrategyPlan&#xA;&#xA;CREATE TABLE [dbo].[FactStrategyPlan](&#xA;&#x9;[StrategyPlanKey] [int] IDENTITY(1,1) NOT NULL,&#xA;&#x9;[Datekey] [datetime] NOT NULL,&#xA;&#x9;[EntityKey] [int] NOT NULL,&#xA;&#x9;[ScenarioKey] [int] NOT NULL,&#xA;&#x9;[AccountKey] [int] NOT NULL,&#xA;&#x9;[CurrencyKey] [int] NOT NULL,&#xA;&#x9;[ProductCategoryKey] [int] NULL,&#xA;&#x9;[Amount] [money] NOT NULL,&#xA;&#x9;[ETLLoadID] [int] NULL,&#xA;&#x9;[LoadDate] [datetime] NULL,&#xA;&#x9;[UpdateDate] [datetime] NULL,&#xA; CONSTRAINT [PK_FactStrategyPlan_StrategyPlanKey] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[StrategyPlanKey] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimAccount] FOREIGN KEY([AccountKey])&#xA;REFERENCES [dbo].[DimAccount] ([AccountKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimAccount]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimCurrency] FOREIGN KEY([CurrencyKey])&#xA;REFERENCES [dbo].[DimCurrency] ([CurrencyKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimCurrency]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimDate] FOREIGN KEY([Datekey])&#xA;REFERENCES [dbo].[DimDate] ([Datekey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimDate]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimEntity] FOREIGN KEY([EntityKey])&#xA;REFERENCES [dbo].[DimEntity] ([EntityKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimEntity]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimProductCategory] FOREIGN KEY([ProductCategoryKey])&#xA;REFERENCES [dbo].[DimProductCategory] ([ProductCategoryKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimProductCategory]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimScenario] FOREIGN KEY([ScenarioKey])&#xA;REFERENCES [dbo].[DimScenario] ([ScenarioKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimScenario]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;TRUNCATE TABLE [dbo].[DimAccount];&#xA;&#xA;--FactStrategyPlan&#xA;&#xA;CREATE TABLE [dbo].[FactStrategyPlan](&#xA;&#x9;[StrategyPlanKey] [int] IDENTITY(1,1) NOT NULL,&#xA;&#x9;[Datekey] [datetime] NOT NULL,&#xA;&#x9;[EntityKey] [int] NOT NULL,&#xA;&#x9;[ScenarioKey] [int] NOT NULL,&#xA;&#x9;[AccountKey] [int] NOT NULL,&#xA;&#x9;[CurrencyKey] [int] NOT NULL,&#xA;&#x9;[ProductCategoryKey] [int] NULL,&#xA;&#x9;[Amount] [money] NOT NULL,&#xA;&#x9;[ETLLoadID] [int] NULL,&#xA;&#x9;[LoadDate] [datetime] NULL,&#xA;&#x9;[UpdateDate] [datetime] NULL,&#xA; CONSTRAINT [PK_FactStrategyPlan_StrategyPlanKey] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[StrategyPlanKey] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimAccount] FOREIGN KEY([AccountKey])&#xA;REFERENCES [dbo].[DimAccount] ([AccountKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimAccount]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimCurrency] FOREIGN KEY([CurrencyKey])&#xA;REFERENCES [dbo].[DimCurrency] ([CurrencyKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimCurrency]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimDate] FOREIGN KEY([Datekey])&#xA;REFERENCES [dbo].[DimDate] ([Datekey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimDate]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimEntity] FOREIGN KEY([EntityKey])&#xA;REFERENCES [dbo].[DimEntity] ([EntityKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimEntity]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimProductCategory] FOREIGN KEY([ProductCategoryKey])&#xA;REFERENCES [dbo].[DimProductCategory] ([ProductCategoryKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimProductCategory]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan]  WITH CHECK ADD  CONSTRAINT [FK_FactStrategyPlan_DimScenario] FOREIGN KEY([ScenarioKey])&#xA;REFERENCES [dbo].[DimScenario] ([ScenarioKey])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[FactStrategyPlan] CHECK CONSTRAINT [FK_FactStrategyPlan_DimScenario]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -946,6 +967,24 @@
               SQLTask:SqlStatementSource="MERGE INTO MetroRetailDW.dbo.DimAccount AS target&#xA;USING MetroRetail_stagingDW.dbo.DimAccount AS source&#xA;ON (target.AccountKey = source.AccountKey)&#xA;-- When matched, and there are changes, then update&#xA;WHEN MATCHED AND (target.ParentAccountKey != source.ParentAccountKey OR&#xA;                  target.AccountLabel != source.AccountLabel OR&#xA;                  target.AccountName != source.AccountName OR&#xA;                  target.AccountDescription != source.AccountDescription OR&#xA;                  target.AccountType != source.AccountType OR&#xA;                  target.Operator != source.Operator OR&#xA;                  target.CustomMembers != source.CustomMembers OR&#xA;                  target.ValueType != source.ValueType OR&#xA;                  target.CustomMemberOptions != source.CustomMemberOptions OR&#xA;                  target.ETLLoadID != source.ETLLoadID OR&#xA;                  target.LoadDate != source.LoadDate OR&#xA;                  target.UpdateDate != source.UpdateDate)&#xA;THEN &#xA;    UPDATE SET &#xA;        target.ParentAccountKey = source.ParentAccountKey,&#xA;        target.AccountLabel = source.AccountLabel,&#xA;        target.AccountName = source.AccountName,&#xA;        target.AccountDescription = source.AccountDescription,&#xA;        target.AccountType = source.AccountType,&#xA;        target.Operator = source.Operator,&#xA;        target.CustomMembers = source.CustomMembers,&#xA;        target.ValueType = source.ValueType,&#xA;        target.CustomMemberOptions = source.CustomMemberOptions,&#xA;        target.ETLLoadID = source.ETLLoadID,&#xA;        target.LoadDate = source.LoadDate,&#xA;        target.UpdateDate = source.UpdateDate&#xA;-- When not matched by target, then insert&#xA;WHEN NOT MATCHED BY TARGET &#xA;THEN &#xA;    INSERT (AccountKey, ParentAccountKey, AccountLabel, AccountName, AccountDescription, AccountType,&#xA;            Operator, CustomMembers, ValueType, CustomMemberOptions, ETLLoadID, LoadDate, UpdateDate)&#xA;    VALUES (source.AccountKey, source.ParentAccountKey, source.AccountLabel, source.AccountName,&#xA;            source.AccountDescription, source.AccountType, source.Operator, source.CustomMembers,&#xA;            source.ValueType, source.CustomMemberOptions, source.ETLLoadID, source.LoadDate,&#xA;            source.UpdateDate);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{9FFD5B30-964C-4373-BCFA-E6DE4ADB824D}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="{719EC032-E4D2-4FB1-BC61-DE059041F6B6}"
+              TaskDestinationPath="{2081F9A7-2474-4C54-B56D-DB17C1D22183}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -964,6 +1003,14 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Sequence Container\Execute SQL Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{BB8218BB-937B-45E0-A593-1A9F25629873}"
+          DTS:From="Package\Sequence Container\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\File System Task" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -988,7 +1035,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Sequence Container\Execute SQL Task"
@@ -1057,11 +1104,49 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Sequence Container\File System Task"
+          TopLeft="186.999987160167,146.866664816472" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="577.133303920098,78.3999989151955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-310.933316759931,68.4666659012769"
+              Start="0,0"
+              End="-310.933316759931,60.9666659012769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2333329506384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2333329506384"
+                    Point2="0,34.2333329506384"
+                    Point3="-4,34.2333329506384" />
+                  <mssgle:LineSegment
+                    End="-306.933316759931,34.2333329506384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-306.933316759931,34.2333329506384"
+                    Point2="-310.933316759931,34.2333329506384"
+                    Point3="-310.933316759931,38.2333329506384" />
+                  <mssgle:LineSegment
+                    End="-310.933316759931,60.9666659012769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="723.2,202.4"
-          Size="723.2,245.6"
+          PanelSize="723.2,243.2"
+          Size="723.2,286.4"
           Id="Package\Sequence Container"
           TopLeft="48.1666642535064,76.2666661363179" />
         <NodeLayout
@@ -1070,30 +1155,30 @@
           TopLeft="263.933331102298,440.466663731668" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="409.766664253506,321.866666136318">
+          TopLeft="409.766664253506,362.666666136318">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-59.033333151208,118.59999759535"
+              EndConnector="-59.033333151208,77.7999975953497"
               Start="0,0"
-              End="-59.033333151208,111.09999759535">
+              End="-59.033333151208,70.2999975953497">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.2999987976749" />
+                    End="0,34.8999987976749" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,55.2999987976749"
-                    Point2="0,59.2999987976749"
-                    Point3="-4,59.2999987976749" />
+                    Point1="0,34.8999987976749"
+                    Point2="0,38.8999987976749"
+                    Point3="-4,38.8999987976749" />
                   <mssgle:LineSegment
-                    End="-55.033333151208,59.2999987976749" />
+                    End="-55.033333151208,38.8999987976749" />
                   <mssgle:CubicBezierSegment
-                    Point1="-55.033333151208,59.2999987976749"
-                    Point2="-59.033333151208,59.2999987976749"
-                    Point3="-59.033333151208,63.2999987976749" />
+                    Point1="-55.033333151208,38.8999987976749"
+                    Point2="-59.033333151208,38.8999987976749"
+                    Point3="-59.033333151208,42.8999987976749" />
                   <mssgle:LineSegment
-                    End="-59.033333151208,111.09999759535" />
+                    End="-59.033333151208,70.2999975953497" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
