@@ -1,0 +1,34 @@
+# Ignore .dtproj.user files
+*.dtproj.user
+
+# Ignore bin and obj folders which are generated during build
+**/obj/
+**/bin/
+
+# Ignore any .bak (backup) files
+*.bak
+
+# Ignore all log files
+*.log
+
+# Ignore package debug files
+*.ispac
+
+# Ignore any temporary files
+*.tmp
+
+# Ignore any database files (may vary based on your setup)
+*.mdf
+*.ldf
+
+# If using SQL Server Data Tools (SSDT), ignore the .sqlproj.user files
+*.sqlproj.user
+
+# If using Visual Studio, ignore .vs folder for Visual Studio 2015 and onwards
+.vs/
+
+# Ignore any .suo files (user-specific solution options)
+*.suo
+
+# Ignore any .cache files
+*.cache
