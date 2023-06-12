@@ -7,6 +7,8 @@
 
 # Ignore any .bak (backup) files
 *.bak
+*.zip
+*.suo
 
 # Ignore all log files
 *.log
