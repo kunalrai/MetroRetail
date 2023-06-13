@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{8826E0C9-9EEC-4064-B1A0-14F3D2DFD114}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{4887225A-27D6-4E33-A6AA-3A8F4CFA13F1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -945,33 +945,33 @@
           PanelSize="410.4,283.2"
           Size="410.4,326.4"
           Id="Package\Foreach Loop Container"
-          TopLeft="117.999997131527,218.899998933276" />
+          TopLeft="116.333330555923,123.566666262878" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="272.899989892046,50.5666666425599">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50.3000072394805,168.333332290716"
+              EndConnector="48.6333406638764,72.9999996203185"
               Start="0,0"
-              End="50.3000072394805,160.833332290716">
+              End="48.6333406638764,65.4999996203185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.1666661453579" />
+                    End="0,32.4999998101592" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,80.1666661453579"
-                    Point2="0,84.1666661453579"
-                    Point3="4,84.1666661453579" />
+                    Point1="0,32.4999998101592"
+                    Point2="0,36.4999998101592"
+                    Point3="4,36.4999998101592" />
                   <mssgle:LineSegment
-                    End="46.3000072394805,84.1666661453579" />
+                    End="44.6333406638764,36.4999998101592" />
                   <mssgle:CubicBezierSegment
-                    Point1="46.3000072394805,84.1666661453579"
-                    Point2="50.3000072394805,84.1666661453579"
-                    Point3="50.3000072394805,88.1666661453579" />
+                    Point1="44.6333406638764,36.4999998101592"
+                    Point2="48.6333406638764,36.4999998101592"
+                    Point3="48.6333406638764,40.4999998101592" />
                   <mssgle:LineSegment
-                    End="50.3000072394805,160.833332290716" />
+                    End="48.6333406638764,65.4999996203185" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
