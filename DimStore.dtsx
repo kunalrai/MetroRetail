@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{2D7A80D9-4482-4C83-9205-967233E0FA34}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{69538572-2E37-406D-BC47-AF8DA4EDA1C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -234,6 +234,25 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{F905CB02-0197-4683-B57B-3A18B274F8EC}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{DAC53916-B1DD-4F12-B557-B4FE413F96E6}"
+          TaskDestinationPath="{2081F9A7-2474-4C54-B56D-DB17C1D22183}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1332,6 +1351,23 @@
           SQLTask:SqlStatementSource="Truncate table DimStore" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EE5DFFA0-8274-4292-A604-60428D00385C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="merge"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0638A22B-928E-43E4-B16D-97BE025F9F71}"
+          SQLTask:SqlStatementSource="MERGE INTO MetroRetailDW.dbo.DimStore AS TARGET&#xA;USING MetroRetail_stagingDW.dbo.DimStore AS SOURCE&#xA;ON TARGET.StoreKey = SOURCE.StoreKey&#xA;&#xA;-- When records are matched, update &#xA;-- the records if there is any change&#xA;WHEN MATCHED AND (&#xA;    TARGET.GeographyKey &lt;&gt; SOURCE.GeographyKey OR&#xA;    TARGET.StoreManager &lt;&gt; SOURCE.StoreManager OR&#xA;    TARGET.StoreType &lt;&gt; SOURCE.StoreType OR&#xA;    TARGET.StoreName &lt;&gt; SOURCE.StoreName OR&#xA;    TARGET.StoreDescription &lt;&gt; SOURCE.StoreDescription OR&#xA;    TARGET.Status &lt;&gt; SOURCE.Status OR&#xA;    TARGET.OpenDate &lt;&gt; SOURCE.OpenDate OR&#xA;    TARGET.CloseDate &lt;&gt; SOURCE.CloseDate OR&#xA;    TARGET.EntityKey &lt;&gt; SOURCE.EntityKey OR&#xA;    TARGET.ZipCode &lt;&gt; SOURCE.ZipCode OR&#xA;    TARGET.ZipCodeExtenssion &lt;&gt; SOURCE.ZipCodeExtenssion OR&#xA;    TARGET.StorePhone &lt;&gt; SOURCE.StorePhone OR&#xA;    TARGET.StoreFax &lt;&gt; SOURCE.StoreFax OR&#xA;    TARGET.AddressLine1 &lt;&gt; SOURCE.AddressLine1 OR&#xA;    TARGET.AddressLine2 &lt;&gt; SOURCE.AddressLine2 OR&#xA;    TARGET.CloseReason &lt;&gt; SOURCE.CloseReason OR&#xA;    TARGET.EmployeeCount &lt;&gt; SOURCE.EmployeeCount OR&#xA;    TARGET.SellingAreaSize &lt;&gt; SOURCE.SellingAreaSize OR&#xA;    TARGET.LastRemodeDate &lt;&gt; SOURCE.LastRemodeDate OR&#xA;    TARGET.GeoLocation &lt;&gt; SOURCE.GeoLocation OR&#xA;    TARGET.Geometry &lt;&gt; SOURCE.Geometry OR&#xA;    TARGET.ETLLoadID &lt;&gt; SOURCE.ETLLoadID OR&#xA;    TARGET.LoadDate &lt;&gt; SOURCE.LoadDate OR&#xA;    TARGET.UpdateDate &lt;&gt; SOURCE.UpdateDate&#xA;    )&#xA;THEN &#xA;UPDATE SET&#xA;    TARGET.GeographyKey = SOURCE.GeographyKey,&#xA;    TARGET.StoreManager = SOURCE.StoreManager,&#xA;    TARGET.StoreType = SOURCE.StoreType,&#xA;    TARGET.StoreName = SOURCE.StoreName,&#xA;    TARGET.StoreDescription = SOURCE.StoreDescription,&#xA;    TARGET.Status = SOURCE.Status,&#xA;    TARGET.OpenDate = SOURCE.OpenDate,&#xA;    TARGET.CloseDate = SOURCE.CloseDate,&#xA;    TARGET.EntityKey = SOURCE.EntityKey,&#xA;    TARGET.ZipCode = SOURCE.ZipCode,&#xA;    TARGET.ZipCodeExtenssion = SOURCE.ZipCodeExtenssion,&#xA;    TARGET.StorePhone = SOURCE.StorePhone,&#xA;    TARGET.StoreFax = SOURCE.StoreFax,&#xA;    TARGET.AddressLine1 = SOURCE.AddressLine1,&#xA;    TARGET.AddressLine2 = SOURCE.AddressLine2,&#xA;    TARGET.CloseReason = SOURCE.CloseReason,&#xA;    TARGET.EmployeeCount = SOURCE.EmployeeCount,&#xA;    TARGET.SellingAreaSize = SOURCE.SellingAreaSize,&#xA;    TARGET.LastRemodeDate = SOURCE.LastRemodeDate,&#xA;    TARGET.GeoLocation = SOURCE.GeoLocation,&#xA;    TARGET.Geometry = SOURCE.Geometry,&#xA;    TARGET.ETLLoadID = SOURCE.ETLLoadID,&#xA;    TARGET.LoadDate = SOURCE.LoadDate,&#xA;    TARGET.UpdateDate = SOURCE.UpdateDate&#xA;&#xA;-- When no records are matched, insert&#xA;-- the incoming records from source&#xA;-- table to target table&#xA;WHEN NOT MATCHED BY TARGET &#xA;THEN &#xA;INSERT (&#xA;    StoreKey,&#xA;    GeographyKey,&#xA;    StoreManager,&#xA;    StoreType,&#xA;    StoreName,&#xA;    StoreDescription,&#xA;    Status,&#xA;    OpenDate,&#xA;    CloseDate,&#xA;    EntityKey,&#xA;    ZipCode,&#xA;    ZipCodeExtenssion,&#xA;    StorePhone,&#xA;    StoreFax,&#xA;    AddressLine1,&#xA;    AddressLine2,&#xA;    CloseReason,&#xA;    EmployeeCount,&#xA;    SellingAreaSize,&#xA;    LastRemodeDate,&#xA;    GeoLocation,&#xA;    Geometry,&#xA;    ETLLoadID,&#xA;    LoadDate,&#xA;    UpdateDate&#xA;    )&#xA;VALUES (&#xA;    SOURCE.StoreKey,&#xA;    SOURCE.GeographyKey,&#xA;    SOURCE.StoreManager,&#xA;    SOURCE.StoreType,&#xA;    SOURCE.StoreName,&#xA;    SOURCE.StoreDescription,&#xA;    SOURCE.Status,&#xA;    SOURCE.OpenDate,&#xA;    SOURCE.CloseDate,&#xA;    SOURCE.EntityKey,&#xA;    SOURCE.ZipCode,&#xA;    SOURCE.ZipCodeExtenssion,&#xA;    SOURCE.StorePhone,&#xA;    SOURCE.StoreFax,&#xA;    SOURCE.AddressLine1,&#xA;    SOURCE.AddressLine2,&#xA;    SOURCE.CloseReason,&#xA;    SOURCE.EmployeeCount,&#xA;    SOURCE.SellingAreaSize,&#xA;    SOURCE.LastRemodeDate,&#xA;    SOURCE.GeoLocation,&#xA;    SOURCE.Geometry,&#xA;    SOURCE.ETLLoadID,&#xA;    SOURCE.LoadDate,&#xA;    SOURCE.UpdateDate&#xA;    );&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1342,6 +1378,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{839AC6E1-0345-4344-A6AF-4CBC664A8173}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\merge" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F8E217D-4407-4841-AF8A-011937DA553F}"
+      DTS:From="Package\merge"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\archive" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1354,41 +1406,117 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Execute SQL Task"
-          TopLeft="59.9999967217447,35.533333086239" />
+          TopLeft="123.333326594698,14.7333332308796" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="147.499991940956,177.666665431195" />
+          TopLeft="148.333325228758,177.666665431195" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="142.399996721745,77.133333086239">
+          TopLeft="205.733326594698,56.3333332308796">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.299995219211,100.533332344956"
+              EndConnector="17.7999986340602,121.333332200315"
               Start="0,0"
-              End="80.299995219211,93.0333323449559">
+              End="17.7999986340602,113.833332200315">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.2666661724779" />
+                    End="0,56.6666661001576" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46.2666661724779"
-                    Point2="0,50.2666661724779"
-                    Point3="4,50.2666661724779" />
+                    Point1="0,56.6666661001576"
+                    Point2="0,60.6666661001576"
+                    Point3="4,60.6666661001576" />
                   <mssgle:LineSegment
-                    End="76.299995219211,50.2666661724779" />
+                    End="13.7999986340602,60.6666661001576" />
                   <mssgle:CubicBezierSegment
-                    Point1="76.299995219211,50.2666661724779"
-                    Point2="80.299995219211,50.2666661724779"
-                    Point3="80.299995219211,54.2666661724779" />
+                    Point1="13.7999986340602,60.6666661001576"
+                    Point2="17.7999986340602,60.6666661001576"
+                    Point3="17.7999986340602,64.6666661001576" />
                   <mssgle:LineSegment
-                    End="80.299995219211,93.0333323449559" />
+                    End="17.7999986340602,113.833332200315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\merge"
+          TopLeft="246.666653189395,317.199997794231" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\archive"
+          TopLeft="204.166655511492,422.933330392308" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="223.533325228758,219.266665431195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.1333279606371,97.933332363036"
+              Start="0,0"
+              End="77.1333279606371,90.433332363036">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.966666181518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.966666181518"
+                    Point2="0,48.966666181518"
+                    Point3="4,48.966666181518" />
+                  <mssgle:LineSegment
+                    End="73.1333279606371,48.966666181518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.1333279606371,48.966666181518"
+                    Point2="77.1333279606371,48.966666181518"
+                    Point3="77.1333279606371,52.966666181518" />
+                  <mssgle:LineSegment
+                    End="77.1333279606371,90.433332363036" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="300.666653189395,358.799997794231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.4999976779025,64.1333325980768"
+              Start="0,0"
+              End="-40.4999976779025,56.6333325980768">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0666662990384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0666662990384"
+                    Point2="0,32.0666662990384"
+                    Point3="-4,32.0666662990384" />
+                  <mssgle:LineSegment
+                    End="-36.4999976779025,32.0666662990384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.4999976779025,32.0666662990384"
+                    Point2="-40.4999976779025,32.0666662990384"
+                    Point3="-40.4999976779025,36.0666662990384" />
+                  <mssgle:LineSegment
+                    End="-40.4999976779025,56.6333325980768" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
