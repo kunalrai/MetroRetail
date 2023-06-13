@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{D115BF71-9D6B-448F-9F8C-E939FF58CF59}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{2D7A80D9-4482-4C83-9205-967233E0FA34}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -74,7 +74,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreKey"
-              DTS:DTSID="{5797BCC2-A375-4B35-BA6C-C0E9F6773024}"
+              DTS:DTSID="{416BDDC2-1A4F-437D-8B27-E851D48351B2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -83,7 +83,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GeographyKey"
-              DTS:DTSID="{722D5293-9C4C-4E91-9CA4-BC7663BA0714}"
+              DTS:DTSID="{46EFC453-1707-499F-9EA8-6DEBF2280D07}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -92,7 +92,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreManager"
-              DTS:DTSID="{89048CBA-A31A-4F64-AE88-8EC5146FEE9B}"
+              DTS:DTSID="{28D3B156-F647-467B-83CF-629C7AFDBD8C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -101,7 +101,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreType"
-              DTS:DTSID="{B72C8BE6-2D9E-4BED-8708-7341C5635CC8}"
+              DTS:DTSID="{B7F4D5D1-39B9-4952-8602-4AC72ED7090B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -110,7 +110,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreName"
-              DTS:DTSID="{A1804223-F5B9-43C6-9C1F-DFA8285256CF}"
+              DTS:DTSID="{CE559F7D-07E0-413D-B848-C2713C1181D3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -119,7 +119,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreDescription"
-              DTS:DTSID="{27C797C3-B1A6-4339-9FE6-6CB06F9164F8}"
+              DTS:DTSID="{21136C67-7B70-4BD9-B1AE-F8B709497BAF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -128,16 +128,15 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="OpenDate"
-              DTS:DTSID="{09989FEB-4660-423D-A629-C96603A4D2ED}"
+              DTS:DTSID="{33EB16EC-4CA4-432E-A2E8-6DD9E342990C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="CloseDate"
-              DTS:DTSID="{392979D6-1BCC-4F73-B9BD-B525500E7951}"
+              DTS:DTSID="{CAAE2DD4-65CF-42E7-ADF1-F0A9F14752F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -146,7 +145,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EntityKey"
-              DTS:DTSID="{277A1FCF-AA0E-43FB-A9A5-3439F07BDB63}"
+              DTS:DTSID="{68AAE00A-E9F6-474F-8851-3EFA656582A4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -155,7 +154,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZipCode"
-              DTS:DTSID="{6780EE09-5059-4AC3-BBEE-307BB1ACE323}"
+              DTS:DTSID="{AE2E31BE-316F-46BF-939E-AE032B23AB52}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -164,7 +163,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZipCodeExtension"
-              DTS:DTSID="{788FC07C-37C5-468F-B7C7-A4B794C106B9}"
+              DTS:DTSID="{5C4F8EA9-4CA3-4144-8F14-B8B1349034F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -173,7 +172,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StorePhone"
-              DTS:DTSID="{863A17D4-AC62-46EE-B8B2-B5563D1EC991}"
+              DTS:DTSID="{EB148F79-AB26-4D73-8A91-BB369C2681C4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -182,7 +181,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreFax"
-              DTS:DTSID="{0C6B769C-611F-4B30-BAA6-7A3BD29235AD}"
+              DTS:DTSID="{0E5A475E-B30C-497C-A071-5498E7EFA607}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -191,16 +190,15 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CloseReason"
-              DTS:DTSID="{F558713B-C68F-4BAB-BFE7-3C5ECB536FC4}"
+              DTS:DTSID="{E70AD116-45ED-42D5-9609-7B2FC17B481E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeCount"
-              DTS:DTSID="{C1A6BD2F-472F-4A23-9789-8738185BCEA1}"
+              DTS:DTSID="{53EB7FA1-67EB-4402-9C33-14519A91E851}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +207,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SellingAreaSize"
-              DTS:DTSID="{382CFF32-54C0-4471-AEC4-3C93A9600C45}"
+              DTS:DTSID="{A9E2AC56-174B-436F-88D5-F6BF6880EC30}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -218,7 +216,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastRemodelDate"
-              DTS:DTSID="{65317C30-896D-476C-B07C-BFA0C1F5E0DA}"
+              DTS:DTSID="{2416A3B0-E523-441B-B929-A3668E060D0E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -227,7 +225,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ETLLoadID"
-              DTS:DTSID="{6770A3F0-7857-4B27-A57A-E7F1862F0D21}"
+              DTS:DTSID="{9F3FDA24-53D4-435F-BDF6-60D7D2025F74}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -265,9 +263,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[CloseDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="dbDate"
                       cachedName="CloseDate"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]" />
                   </inputColumns>
@@ -347,6 +343,28 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">ISNULL(CloseDate) ? "On" : "Off"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ValidClosedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ValidClosedDate]"
+                      name="ValidClosedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]}) ? (DT_DBTIMESTAMP)"1900-01-01 00:00:00.000" : #{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CloseDate) ? (DT_DBTIMESTAMP)"1900-01-01 00:00:00.000" : CloseDate</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -503,14 +521,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].ExternalColumns[OpenDate]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[OpenDate]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].Columns[CloseDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CloseDate"
-                      externalMetadataColumnId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].ExternalColumns[CloseDate]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].Columns[EntityKey]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -555,9 +565,7 @@
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseReason]" />
                     <inputColumn
                       refId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].Columns[EmployeeCount]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="i4"
                       cachedName="EmployeeCount"
                       externalMetadataColumnId="Package\Data Flow Task\dimstore.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeCount]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeCount]" />
@@ -930,12 +938,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CloseDate]"
-                      length="50"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CloseDate]"
                       name="CloseDate"
                       truncationRowDisposition="FailComponent">
@@ -1079,12 +1085,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeCount]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeCount]"
-                      length="50"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeCount]"
                       name="EmployeeCount"
                       truncationRowDisposition="FailComponent">
@@ -1209,9 +1213,7 @@
                       name="OpenDate" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CloseDate]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="dbDate"
                       name="CloseDate" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EntityKey]"
@@ -1246,9 +1248,7 @@
                       name="CloseReason" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeCount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="EmployeeCount" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SellingAreaSize]"
@@ -1416,33 +1416,33 @@
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Data Flow Task\Derived Column"
-          TopLeft="203.33332222369,197.599998625914" />
+          TopLeft="214.166654965116,178.533332091835" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="236.433324545788,129.999999385277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.2999976779026,67.5999992406368"
+              EndConnector="54.1333304193287,48.5333327065573"
               Start="0,0"
-              End="43.2999976779026,60.0999992406368">
+              End="54.1333304193287,41.0333327065573">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.7999996203184" />
+                    End="0,20.2666663532787" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.7999996203184"
-                    Point2="0,33.7999996203184"
-                    Point3="4,33.7999996203184" />
+                    Point1="0,20.2666663532787"
+                    Point2="0,24.2666663532787"
+                    Point3="4,24.2666663532787" />
                   <mssgle:LineSegment
-                    End="39.2999976779026,33.7999996203184" />
+                    End="50.1333304193287,24.2666663532787" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.2999976779026,33.7999996203184"
-                    Point2="43.2999976779026,33.7999996203184"
-                    Point3="43.2999976779026,37.7999996203184" />
+                    Point1="50.1333304193287,24.2666663532787"
+                    Point2="54.1333304193287,24.2666663532787"
+                    Point3="54.1333304193287,28.2666663532787" />
                   <mssgle:LineSegment
-                    End="43.2999976779026,60.0999992406368" />
+                    End="54.1333304193287,41.0333327065573" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1453,30 +1453,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="279.73332222369,239.199998625914">
+          TopLeft="290.566654965116,220.133332091835">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-90.5333293265769,104.866665648156"
+              EndConnector="-101.366662068003,123.933332182235"
               Start="0,0"
-              End="-90.5333293265769,97.3666656481558">
+              End="-101.366662068003,116.433332182235">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.4333328240779" />
+                    End="0,57.9666660911177" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.4333328240779"
-                    Point2="0,52.4333328240779"
-                    Point3="-4,52.4333328240779" />
+                    Point1="0,57.9666660911177"
+                    Point2="0,61.9666660911177"
+                    Point3="-4,61.9666660911177" />
                   <mssgle:LineSegment
-                    End="-86.5333293265769,52.4333328240779" />
+                    End="-97.366662068003,61.9666660911177" />
                   <mssgle:CubicBezierSegment
-                    Point1="-86.5333293265769,52.4333328240779"
-                    Point2="-90.5333293265769,52.4333328240779"
-                    Point3="-90.5333293265769,56.4333328240779" />
+                    Point1="-97.366662068003,61.9666660911177"
+                    Point2="-101.366662068003,61.9666660911177"
+                    Point3="-101.366662068003,65.9666660911177" />
                   <mssgle:LineSegment
-                    End="-90.5333293265769,97.3666656481558" />
+                    End="-101.366662068003,116.433332182235" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
